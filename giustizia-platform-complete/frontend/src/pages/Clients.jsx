@@ -19,6 +19,7 @@ const Clients = ({ clients, setClients, loadClients }) => {
 
   useEffect(() => {
     filterClients();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clients, searchTerm]);
 
   const filterClients = () => {

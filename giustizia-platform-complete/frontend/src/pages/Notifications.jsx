@@ -7,6 +7,7 @@ const Notifications = ({ notifications, loadNotifications }) => {
 
   useEffect(() => {
     filterNotifications();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notifications, filter]);
 
   const filterNotifications = () => {

@@ -12,6 +12,7 @@ const Dashboard = ({ clients, notifications }) => {
   useEffect(() => {
     updateStats();
     loadRecentUpdates();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clients, notifications]);
 
   const updateStats = () => {
