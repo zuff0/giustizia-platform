@@ -17,11 +17,11 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)  # Permitir CORS para o frontend
 
-# debbugging
-@app.before_first_request
-def before_first_request():
-    logger.info("Aplicação Flask inicializada com sucesso!")
-    logger.info(f"Variáveis de ambiente: PORT={os.environ.get('PORT')}")
+# # debbugging
+# @app.before_first_request
+# def before_first_request():
+#     logger.info("Aplicação Flask inicializada com sucesso!")
+#     logger.info(f"Variáveis de ambiente: PORT={os.environ.get('PORT')}")
 
 # Inicializar serviços
 db = Database()
@@ -29,18 +29,18 @@ api = GiustiziaAPI()
 scheduler = QueryScheduler(db)
 
 # Iniciar scheduler
-#scheduler.start()
+scheduler.start()
 
-@app.before_first_request
-def initialize_scheduler():
-    def run_scheduler():
-        scheduler.start()
-    
-    # Inicia o scheduler em uma thread separada
-    import threading
-    thread = threading.Thread(target=run_scheduler)
-    thread.daemon = True  # Permite que o programa termine mesmo com o scheduler rodando
-    thread.start()
+# @app.before_first_request
+# def initialize_scheduler():
+#     def run_scheduler():
+#         scheduler.start()
+#
+#     # Inicia o scheduler em uma thread separada
+#     import threading
+#     thread = threading.Thread(target=run_scheduler)
+#     thread.daemon = True  # Permite que o programa termine mesmo com o scheduler rodando
+#     thread.start()
 
 # ROTAS DE HEALTH CHECK
 
