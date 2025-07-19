@@ -18,10 +18,10 @@ app = Flask(__name__)
 CORS(app)  # Permitir CORS para o frontend
 
 # # debbugging
-# @app.before_first_request
-# def before_first_request():
-#     logger.info("Aplicação Flask inicializada com sucesso!")
-#     logger.info(f"Variáveis de ambiente: PORT={os.environ.get('PORT')}")
+@app.route("/")
+def hello():
+    return "Backend vivo na raiz também!"
+
 
 # Inicializar serviços
 db = Database()
@@ -30,17 +30,6 @@ scheduler = QueryScheduler(db)
 
 # Iniciar scheduler
 scheduler.start()
-
-# @app.before_first_request
-# def initialize_scheduler():
-#     def run_scheduler():
-#         scheduler.start()
-#
-#     # Inicia o scheduler em uma thread separada
-#     import threading
-#     thread = threading.Thread(target=run_scheduler)
-#     thread.daemon = True  # Permite que o programa termine mesmo com o scheduler rodando
-#     thread.start()
 
 # ROTAS DE HEALTH CHECK
 
