@@ -4,7 +4,7 @@ import threading
 import logging
 from datetime import datetime, timedelta
 from typing import List, Dict, Callable
-from giustizia_api import GiustiziaAPI
+from .giustizia_api import GiustiziaAPI
 from models.database import Database
 
 class QueryScheduler:
