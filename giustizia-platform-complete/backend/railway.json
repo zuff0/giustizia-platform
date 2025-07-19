@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "cd src && gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --preload",
+    "startCommand": "cd src && gunicorn main:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120 --access-logfile - --error-logfile -",
     "healthcheckTimeout": 120,
     "healthcheckPath": "/api/health",
     "healthcheckInterval": 5,
