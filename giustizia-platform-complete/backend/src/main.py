@@ -32,15 +32,17 @@ scheduler = QueryScheduler(db)
 scheduler.start()
 
 # ROTAS DE HEALTH CHECK
-
-@app.route('/api/health', methods=['GET'])
-def health_check():
-    """Verifica se a API está funcionando"""
-    return jsonify({
-        'status': 'online',
-        'timestamp': datetime.now().isoformat(),
-        'version': '1.0.0'
-    })
+@app.route("/api/health")
+def healthcheck():
+    return jsonify({"status": "ok"})
+# @app.route('/api/health', methods=['GET'])
+# def health_check():
+#     """Verifica se a API está funcionando"""
+#     return jsonify({
+#         'status': 'online',
+#         'timestamp': datetime.now().isoformat(),
+#         'version': '1.0.0'
+#     })
 
 # ROTAS DE CLIENTES
 
