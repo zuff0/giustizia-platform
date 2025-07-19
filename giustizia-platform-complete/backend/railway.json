@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "cd src && gunicorn main:app --bind 0.0.0.0:$PORT --workers 2",
+    "startCommand": "gunicorn src.main:app --bind 0.0.0.0:$PORT --workers 2",
     "healthcheckTimeout": 120,
     "healthcheckPath": "/api/health",
     "restartPolicyType": "ON_FAILURE",
